@@ -23,10 +23,10 @@ public class TileGrid {
 			for(int j = 0; j<map[i].length; j++)
 			{
 				if(newMap[j][i] == 0){
-					map[i][j] = new Tile(i*25, j*25, 25, 25, TileType.Ship);
+					map[i][j] = new Tile(i*25, j*25, 25, 25, TileType.Transparent);
 				}
 				else
-					map[i][j] = new Tile(i*25, j*25, 25, 25, TileType.Transparent);
+					map[i][j] = new Tile(i*25, j*25, 25, 25, TileType.Impassable);
 			}
 		}
 	}
