@@ -18,11 +18,11 @@ public class Boot extends Canvas implements Runnable{ //Main class for Running
 	
 	MapRepository repo = new MapRepository();
 	int[][] map1 = (int[][]) repo.getStorage().get(0);
-	TileGrid map = new TileGrid(map1);
-	//Tile primary = new Tile(0, 0, 15, 15, TileType.Primary);
-	//Tile secondary = new Tile(100, 0, 15, 15, TileType.Secondary);
-	Tile bg = new Tile(-10, -10, WIDTH+20, HEIGHT+20, TileType.Background);
-	Tile mapTex = new Tile(-10, -10, WIDTH+20, HEIGHT+20, TileType.MapTex1);
+	TileGrid m = new TileGrid(map1);
+
+	//World world = new World(m);	
+	Player playa = new Player(100, 100, ObjectID.Player);
+	
 	public synchronized void start(){
 		if(running) //Safety precaution
 			return;		
@@ -59,12 +59,11 @@ public class Boot extends Canvas implements Runnable{ //Main class for Running
 				updates = 0;
 			}
 		}
-		
 	}
 	//ticks = updates
 	private void tick()
 	{
-		
+		playa.tick();
 	}
 	private void render()
 	{
@@ -78,32 +77,16 @@ public class Boot extends Canvas implements Runnable{ //Main class for Running
 		
 		//--------------Draw Here--------------\\
 		g.setColor(Color.black);
-		drawTile(g, bg);
-		drawMap(g, map);
-		drawTile(g, mapTex);
+		StateManager.update(g);
+		//world.update(g);
+		//drawTile(g, mapTex);
 		g.setColor(Color.white);
-		//drawTile(g, primary);
-		//drawTile(g, secondary);
 		//--------------------------------------\\
 		g.dispose();
 		bs.show();
 		
 	}
 	
-	public void drawTile(Graphics g, Tile t)
-	{
-		g.drawImage(t.getImage(),t.getX(), t.getY(), t.getWidth(), t.getHeight(), null);
-	}
-
-	public void drawMap(Graphics g, TileGrid t)
-	{
-		for(int i = 0; i<t.getMap().length; i++){
-			for(int j = 0; j<t.getMap()[i].length; j++){
-				Tile a = t.getMap()[i][j];
-				g.drawImage(a.getImage(), a.getX(), a.getY(), a.getWidth(), a.getHeight(), null);
-			}
-		}
-	}
 	public static void main(String[] args)
 	{
 		new Window(WIDTH, HEIGHT, "Super Smash", new Boot()); //Calls Window constructor (sets up window and displays)

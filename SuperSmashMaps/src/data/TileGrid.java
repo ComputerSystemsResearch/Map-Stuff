@@ -31,6 +31,15 @@ public class TileGrid {
 		}
 	}
 
+	public void setTile(int x, int y, TileType t)
+	{
+		map[x][y] = new Tile(x*25, y*25, 25, 25, t);
+	}
+	
+	public Tile getTile(int x, int y)
+	{
+		return map[x][y];
+	}
 
 	public Tile[][] getMap() {
 		return map;
