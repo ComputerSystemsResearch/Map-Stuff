@@ -7,7 +7,7 @@ public class World {
 	private TileGrid grid;
 	private Tile bg;
 	private Tile mapTex;
-	
+	private AudioPlayer gameMusic;
 	
 	public static final int WIDTH = 900, HEIGHT = 450; //Default
 
@@ -16,6 +16,9 @@ public class World {
 		grid = g;
 		bg = new Tile(-10, -10, WIDTH+20, HEIGHT+20, TileType.Background);
 		mapTex = new Tile(-10, -10, WIDTH+20, HEIGHT+20, TileType.MapTex1);
+		gameMusic = new AudioPlayer("res/gameMusic.wav");
+		if(MainMenu.musicOn == true)
+			gameMusic.play();
 	}
 	
 	public void update(Graphics g)
