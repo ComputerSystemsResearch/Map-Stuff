@@ -121,9 +121,9 @@ public class MouseInput implements MouseListener{
 			{
 				if(mx>380 && mx <510 && my>400 && my<435)
 				{
-					MainMenu.music.stop();
-					MainMenu.music.close();
-					StateManager.gameState = GameState.GAME;
+					StateManager.mapSelect = null;
+					StateManager.gameState = GameState.MAPSELECT;
+					StateManager.characterSelect = null;
 				}
 			}
 			if(mx>830 && mx<890 && my>400 && my<435)
@@ -139,6 +139,56 @@ public class MouseInput implements MouseListener{
 					MainMenu.music.play();
 			}
 		}
+		
+		else if(StateManager.gameState == GameState.MAPSELECT)
+		{
+			if(MapSelect.mapName == null)
+			{
+				if(mx>75 && mx<368 && my>100 && my<399)
+				{	
+					MapSelect.mapName = "Freefall";
+				}
+				else if(mx>520 && mx<815 && my>100 && my<399)
+				{
+					MapSelect.mapName = "Hellfire";
+				}
+			}
+			else
+			{
+				if(mx>75 && mx<368 && my>100 && my<399)
+				{	
+					MapSelect.mapName = "Freefall";
+				}
+				else if(mx>520 && mx<815 && my>100 && my<399)
+				{
+					MapSelect.mapName = "Hellfire";
+				}
+				if(mx>380 && mx <510 && my>400 && my<435)
+				{
+					MainMenu.music.stop();
+					MainMenu.music.close();
+					StateManager.mapSelect = null;
+					StateManager.game = null;
+					StateManager.game2 = null;
+					if(MapSelect.mapName.equals("Freefall"))
+						StateManager.gameState = GameState.GAME;
+					else if (MapSelect.mapName.equals("Hellfire"))
+						StateManager.gameState = GameState.GAME2;
+					StateManager.characterSelect = null;
+					StateManager.mapSelect = null;
+					MapSelect.mapName = null;
+				}
+			}
+			if(mx>830 && mx<890 && my>400 && my<435)
+			{
+				StateManager.characterSelect = null;
+				CharacterSelect.playerTwoChar = null;
+				CharacterSelect.playerOneChar = null;
+				StateManager.gameState = GameState.CHARACTERSELECT;
+				MapSelect.mapName = null;
+			}
+		}
+
 		
 	}
 

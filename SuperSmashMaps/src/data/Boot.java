@@ -19,7 +19,8 @@ public class Boot extends Canvas implements Runnable{ //Main class for Running
 	MapRepository repo = new MapRepository();
 	int[][] map1 = (int[][]) repo.getStorage().get(0);
 	TileGrid m = new TileGrid(map1);
-
+	//mapPixelXCoords = new int[]{150, 740, 740, 150};//Rahul - Map 2 X coords {150,740,740,150}
+    //mapPixelYCoords = new int[]{300, 300, 450, 450};//Rahul - Map 2 Y coords {300, 300, 450, 450}
 	//World world = new World(m);	
 	Player playa = new Player(100, 100, ObjectID.Player);
 	
@@ -55,7 +56,7 @@ public class Boot extends Canvas implements Runnable{ //Main class for Running
 					
 			if(System.currentTimeMillis() - timer > 1000){
 				timer += 1000;
-				System.out.println("FPS: " + frames + " TICKS: " + updates);
+				System.out.println("FPS: " + frames + " UPDATES: " + updates);
 				frames = 0;
 				updates = 0;
 			}
