@@ -1,0 +1,45 @@
+package data;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
+import data.StateManager.GameState;
+
+public class MouseMotionInput implements MouseMotionListener{
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		int mx = e.getX();
+		int my = e.getY();
+			if(StateManager.gameState == GameState.MAINMENU)
+			{
+				//Play
+				if(mx>650 && mx<(650+167) && my>135 && my<(135+100))
+				{
+					World.gameMusic.play();
+					System.out.print("yee");
+					MainMenu.sfx1.close();
+				}
+				//Settings
+				if(mx>637 && mx<(637+200) && my>240 && my<(240+100))
+				{
+					MainMenu.sfx1.play();
+					MainMenu.sfx1.close();
+				}
+				//Exit					
+				if(mx>650 && mx<(650+167) && my>345 && my<(345+100))
+				{
+					MainMenu.sfx1.play();
+					MainMenu.sfx1.close();
+				}
+			}
+		
+	}
+
+}

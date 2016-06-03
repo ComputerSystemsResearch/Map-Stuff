@@ -2,7 +2,6 @@ package data;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import data.StateManager.GameState;
 
 public class MouseInput implements MouseListener{
@@ -15,7 +14,7 @@ public class MouseInput implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -35,6 +34,8 @@ public class MouseInput implements MouseListener{
 			//Play
 			if(mx>650 && mx<(650+167) && my>135 && my<(135+100))
 			{
+				if(MainMenu.sfxOn)
+					MainMenu.sfx1.play();
 				StateManager.game = null;
 				StateManager.characterSelect = null;
 				StateManager.gameState = GameState.CHARACTERSELECT;
@@ -42,6 +43,8 @@ public class MouseInput implements MouseListener{
 			//Settings
 			if(mx>637 && mx<(637+200) && my>240 && my<(240+100))
 			{
+				if(MainMenu.sfxOn)
+					MainMenu.sfx1.play();
 				MainMenu.music.stop();
 				MainMenu.music.close();
 				StateManager.settings = null;
@@ -50,6 +53,8 @@ public class MouseInput implements MouseListener{
 			//Exit
 			if(mx>650 && mx<(650+167) && my>345 && my<(345+100))
 			{
+				if(MainMenu.sfxOn)
+					MainMenu.sfx1.play();
 				StateManager.gameState = GameState.EXIT;
 			}
 		}
@@ -84,6 +89,8 @@ public class MouseInput implements MouseListener{
 			//Back
 			if(mx>820 && mx<880 && my>15 && my<50)
 			{
+				if(MainMenu.sfxOn)
+					MainMenu.sfx1.play();
 				MainMenu.music.stop();
 				MainMenu.music.close();
 				MainMenu.music = new AudioPlayer("res/sciFi.wav");
@@ -121,6 +128,8 @@ public class MouseInput implements MouseListener{
 			{
 				if(mx>380 && mx <510 && my>400 && my<435)
 				{
+					if(MainMenu.sfxOn)
+						MainMenu.sfx1.play();
 					StateManager.mapSelect = null;
 					StateManager.gameState = GameState.MAPSELECT;
 					StateManager.characterSelect = null;
@@ -128,6 +137,8 @@ public class MouseInput implements MouseListener{
 			}
 			if(mx>830 && mx<890 && my>400 && my<435)
 			{
+				if(MainMenu.sfxOn)
+					MainMenu.sfx1.play();
 				MainMenu.music.stop();
 				MainMenu.music.close();
 				MainMenu.music = new AudioPlayer("res/sciFi.wav");
@@ -165,6 +176,8 @@ public class MouseInput implements MouseListener{
 				}
 				if(mx>380 && mx <510 && my>400 && my<435)
 				{
+					if(MainMenu.sfxOn)
+						MainMenu.sfx1.play();
 					MainMenu.music.stop();
 					MainMenu.music.close();
 					StateManager.mapSelect = null;
@@ -181,6 +194,8 @@ public class MouseInput implements MouseListener{
 			}
 			if(mx>830 && mx<890 && my>400 && my<435)
 			{
+				if(MainMenu.sfxOn)
+					MainMenu.sfx1.play();
 				StateManager.characterSelect = null;
 				CharacterSelect.playerTwoChar = null;
 				CharacterSelect.playerOneChar = null;

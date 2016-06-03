@@ -29,6 +29,7 @@ public class Boot extends Canvas implements Runnable{ //Main class for Running
 			return;		
 		running = true;
 		this.addMouseListener(new MouseInput());
+		this.addMouseMotionListener(new MouseMotionInput());
 		thread = new Thread(this);	//Uses call in Window constructor to start thread
 		thread.start();
 	}

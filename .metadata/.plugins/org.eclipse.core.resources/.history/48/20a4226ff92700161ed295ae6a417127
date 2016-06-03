@@ -1,0 +1,24 @@
+package data;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
+import data.StateManager.GameState;
+
+public class MouseMotionInput implements MouseMotionListener{
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		int mx = e.getX();
+		int my = e.getY();
+		MainMenu.sfx1.play();
+		
+	}
+
+}

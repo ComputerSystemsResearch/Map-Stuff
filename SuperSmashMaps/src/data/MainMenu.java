@@ -2,7 +2,7 @@ package data;
 
 import java.awt.Graphics;
 import java.awt.Image;
-
+import java.awt.MouseInfo;
 
 import javax.swing.ImageIcon;
 
@@ -14,9 +14,10 @@ public class MainMenu {
 	
 	private Image menuBG;
 	public static AudioPlayer music;
+	public static AudioPlayer sfx1;
+	public static AudioPlayer sfx2;
 	private UI menuUI;
 	private Image play, settings, exit;
-	
 	public MainMenu()
 	{
 		this.menuBG = new ImageIcon(getClass().getClassLoader().getResource("res/mainmenu.png")).getImage();
@@ -24,6 +25,7 @@ public class MainMenu {
 		this.settings = new ImageIcon(getClass().getClassLoader().getResource("res/settings.png")).getImage();
 		this.exit = new ImageIcon(getClass().getClassLoader().getResource("res/exit.png")).getImage();
 		MainMenu.music = new AudioPlayer("res/sciFi.wav");
+		MainMenu.sfx1 = new AudioPlayer("res/buttonEffect.wav");
 		MainMenu.musicOn = true;
 		MainMenu.sfxOn = true;
 		this.menuUI = new UI();
@@ -32,7 +34,9 @@ public class MainMenu {
 		menuUI.addButton("Exit", exit, 650, 345, 167, 100);
 		if(MainMenu.musicOn == true)
 			music.play(); 
-		//if(MainMenu.sfxOn == true)
+		if(MainMenu.sfxOn == true){
+		
+		}
 	}
 	
 	private void updateButtons()
